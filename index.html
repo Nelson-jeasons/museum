@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>东南亚英语口音文化数字博物馆</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 保持原有样式不变 */
+        body { font-family: 'Noto Sans SC', sans-serif; }
+        .card-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        .hover-scale { transition: transform 0.3s ease; }
+        .hover-scale:hover { transform: scale(1.03); }
+        .text-shadow-gold { text-shadow: 1px 1px 2px rgba(255, 215, 0, 0.5); }
+        .bg-pattern { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZmlsbD0icmdiYSgyNTUsMjE1LDAsMC4wNSkiIGQ9Ik0wIDBoNTB2NTBIMHptNTAgNTBoNTB2NTBINTB6Ii8+PC9zdmc+'); background-size: 40px; }
+        .carousel-container { position: relative; width: 100%; height: 100%; }
+        .carousel-image { width: 100%; height: 100%; object-fit: cover; display: none; }
+        .carousel-image.active { display: block; }
+        .carousel-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
+        .dot { width: 12px; height: 12px; background-color: #fff; border-radius: 50%; cursor: pointer; transition: background-color 0.3s; }
+        .dot.active { background-color: #FFD700; }
+        .voice-map-section { display: flex; align-items: center; justify-content: space-between; margin: 40px 0; padding: 0 20px; }
+        .map-info { flex: 0 0 40%; max-width: 400px; padding: 20px; }
+        .map-image { flex: 0 0 60%; max-width: 800px; margin-left: 40px; }
+        .map-image img { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="bg-amber-50 text-gray-800">
+    <!-- 导航栏（保持不变） -->
+    <nav class="fixed w-full h-16 bg-gradient-to-r from-amber-100 to-amber-200 shadow-md z-50">
+        <div class="container mx-auto px-4 h-full flex items-center justify-between">
+            <div class="logo flex items-center space-x-2">
+                <img src="https://github.com/Nelson-jeasons/southeast-asia-museum1/blob/main/%E9%A1%B9%E7%9B%AElogo.jpg?raw=true" alt="项目Logo" class="h-10">
+                <span class="text-xl font-bold text-amber-900">东南亚英语口音文化数字博物馆</span>
+            </div>
+            
+            <ul class="hidden md:flex space-x-8">
+                <li class="relative px-3 py-2 text-amber-900 hover:text-teal-700 transition-colors"><a href="#" class="font-medium">首页</a></li>
+                <li class="relative px-3 py-2 text-amber-900 hover:text-teal-700 transition-colors"><a href="#" class="font-medium">语料库</a></li>
+                <li class="relative px-3 py-2 text-amber-900 hover:text-teal-700 transition-colors"><a href="#" class="font-medium">文化解读</a></li>
+                <li class="relative px-3 py-2 text-amber-900 hover:text-teal-700 transition-colors"><a href="#" class="font-medium">学术研究</a></li>
+                <li class="relative px-3 py-2 text-amber-900 hover:text-teal-700 transition-colors"><a href="#" class="font-medium">互动社区</a></li>
+            </ul>
+            <button class="relative overflow-hidden bg-teal-700 text-amber-100 px-6 py-2 rounded-lg shadow-md hover:bg-teal-600 transition-all"><i class="fas fa-user mr-2"></i>登录/注册</button>
+        </div>
+    </nav>
+
+    <!-- 主要内容区 -->
+    <main class="pt-16 pb-12">
+        <!-- 轮播图区（保持不变） -->
+        <section class="relative h-96 overflow-hidden bg-gradient-to-br from-amber-200 to-amber-300 flex items-center">
+            <div class="absolute inset-0 bg-pattern opacity-20"></div>
+            <div class="w-2/5 px-8 text-center bg-amber-200 opacity-80"><h1 class="text-4xl md:text-5xl font-bold text-amber-900 mb-4">探索东南亚语言文化瑰宝</h1></div>
+            <div class="w-3/5 h-full relative">
+                <div class="carousel-container">
+                    <img src="https://github.com/Nelson-jeasons/southeast-asia-museum1/blob/main/%E8%BD%AE%E6%92%AD%E5%9B%BE2.jpg?raw=true" alt="轮播图2" class="carousel-image active">
+                    <img src="https://github.com/Nelson-jeasons/southeast-asia-museum1/blob/main/%E8%BD%AE%E6%92%AD%E5%9B%BE3.jpg?raw=true" alt="轮播图3" class="carousel-image">
+                    <img src="https://github.com/Nelson-jeasons/southeast-asia-museum1/blob/main/%E8%BD%AE%E6%92%AD%E5%9B%BE4.jpg?raw=true" alt="轮播图4" class="carousel-image">
+                    <img src="https://github.com/Nelson-jeasons/southeast-asia-museum1/blob/main/%E8%BD%AE%E6%92%AD%E5%9B%BE5.jpg?raw=true" alt="轮播图5" class="carousel-image">
+                    <div class="carousel-dots"><span class="dot active" data-index="0"></span><span class="dot" data-index="1"></span><span class="dot" data-index="2"></span><span class="dot" data-index="3"></span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 东南亚语音地图区（保持不变） -->
+        <section class="voice-map-section">
+            <div class="map-info">
+                <h2 class="text-2xl font-bold text-amber-900 mb-4">东南亚英语口音分布</h2>
+                <p class="text-gray-600 mb-6">点击地图上的国家，探索当地英语口音特点及文化背景</p>
+                <p class="text-sm text-teal-700">提示：按住Shift可查看方言细节</p>
+            </div>
+            <div class="map-image"><img src="https://github.com/Nelson-jeasons/southeast-asia-museum1/blob/main/%E4%B8%9C%E5%8D%97%E4%BA%9A%E5%9B%BD%E5%AE%B6%E5%9C%B0%E5%9B%BE.jpg?raw=true" alt="东南亚国家地图"></div>
+        </section>
+
+        <!-- 特色文化区（替换为本地图片） -->
+        <section class="container mx-auto px-4 py-12">
+            <h2 class="text-3xl font-bold text-center text-amber-900 mb-12">东南亚文化特色</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- 宗教建筑（替换为建筑.png） -->
+                <div class="bg-white rounded-xl card-shadow overflow-hidden hover-scale">
+                    <img src="https://github.com/Nelson-jeasons/southeast-asia-museum1/blob/main/%E5%BB%BA%E7%AD%91.png?raw=true" alt="东南亚宗教建筑" class="h-48 w-full object-cover"> <!-- 调整为h-48保持统一布局 -->
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-amber-800 mb-3">宗教建筑</h3>
+                        <p class="text-gray-600">东南亚地区拥有众多精美的宗教建筑，如吴哥窟、婆罗浮屠等</p>
+                    </div>
+                </div>
+                
+                <!-- 美食文化（替换为美食.png） -->
+                <div class="bg-white rounded-xl card-shadow overflow-hidden hover-scale">
+                    <img src="https://github.com/Nelson-jeasons/southeast-asia-museum1/blob/main/%E7%BE%8E%E9%A3%9F.png?raw=true" alt="东南亚传统美食" class="h-48 w-full object-cover"> <!-- 保持h-48高度 -->
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-amber-800 mb-3">美食文化</h3>
+                        <p class="text-gray-600">东南亚美食以丰富香料和独特烹饪方式闻名</p>
+                    </div>
+                </div>
+                
+                <!-- 传统艺术（替换为艺术.png） -->
+                <div class="bg-white rounded-xl card-shadow overflow-hidden hover-scale">
+                    <img src="https://github.com/Nelson-jeasons/southeast-asia-museum1/blob/main/%E8%89%BA%E6%9C%AF.png?raw=true" alt="东南亚传统艺术" class="h-48 w-full object-cover"> <!-- 保持h-48高度 -->
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-amber-800 mb-3">传统艺术</h3>
+                        <p class="text-gray-600">包括皮影戏、蜡染工艺、传统舞蹈等</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文化元素展示区（替换为本地图片） -->
+        <section class="container mx-auto px-4 py-12 bg-amber-100">
+            <h2 class="text-3xl font-bold text-center text-amber-900 mb-12">东南亚文化元素</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 水上文化（替换为水上文化.png） -->
+                <div class="bg-white rounded-xl card-shadow overflow-hidden hover-scale">
+                    <img src="https://github.com/Nelson-jeasons/southeast-asia-museum1/blob/main/%E6%B0%B4%E4%B8%8A%E6%96%87%E5%8C%96.png?raw=true" alt="东南亚水上文化" class="h-64 w-full object-cover"> <!-- 调整为h-64增加视觉比重 -->
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-amber-800 mb-3">水上文化</h3>
+                        <p class="text-gray-600">如越南水上市场、泰国水上村庄等独特景观</p>
+                    </div>
+                </div>
+                
+                <!-- 热带植物（替换为植物.png） -->
+                <div class="bg-white rounded-xl card-shadow overflow-hidden hover-scale">
+                    <img src="https://github.com/Nelson-jeasons/southeast-asia-museum1/blob/main/%E6%A4%8D%E7%89%A9.png?raw=true" alt="东南亚热带植物" class="h-64 w-full object-cover"> <!-- 保持h-64高度 -->
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-amber-800 mb-3">热带植物</h3>
+                        <p class="text-gray-600">棕榈树、榴莲、香料等影响当地生活方式</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚（保持不变） -->
+    <footer class="bg-amber-900 text-amber-100 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div><div class="flex items-center space-x-2 mb-2"><div class="h-10 w-10 rounded-full bg-amber-700 flex items-center justify-center text-amber-300"><i class="fas fa-pagoda"></i></div><span class="text-xl font-bold">东南亚文化</span></div><p class="text-amber-200 text-sm">探索传统与现代的完美融合</p></div>
+                <div class="flex space-x-6"><a href="#" class="text-amber-200 hover:text-white"><i class="fab fa-facebook-f"></i></a><a href="#" class="text-amber-200 hover:text-white"><i class="fab fa-twitter"></i></a><a href="#" class="text-amber-200 hover:text-white"><i class="fab fa-instagram"></i></a><a href="#" class="text-amber-200 hover:text-white"><i class="fab fa-youtube"></i></a></div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-amber-800 text-sm text-amber-300">
+                <p>开发团队：何钧申“互联网＋”开发团队</p>
+                <p>合作机构：云南民族大学</p>
+                <p>相关网站：<a href="https://www.ynni.edu.cn" class="text-teal-700 underline">云南民族大学官网</a></p>
+                <p>联系方式：18213266568</p>
+                <p>© 2025 东南亚英语口音文化数字博物馆 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 轮播图脚本（保持不变）
+        const images = document.querySelectorAll('.carousel-image');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+        const interval = 5000;
+        function initCarousel() {
+            images.forEach(img => img.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            images[currentIndex].classList.add('active');
+            dots[currentIndex].classList.add('active');
+        }
+        function nextImage() { currentIndex = (currentIndex + 1) % images.length; initCarousel(); }
+        dots.forEach((dot, index) => dot.addEventListener('click', () => { currentIndex = index; initCarousel(); }));
+        setInterval(nextImage, interval);
+        initCarousel();
+        
+        // 平滑滚动脚本（保持不变）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
